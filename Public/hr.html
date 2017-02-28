@@ -1,0 +1,112 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Human Resources</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+    crossorigin="anonymous"></script>
+    <script src='js/core.js'></script>
+    <meta name="description" content="Bootstrap.">  
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="CSS/style1.css">
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"></style>
+    <script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>       
+  </head>
+ <body id="index_page">
+
+
+<!-- ******************** ADD NEW DATA TO FINANCE TABLE  **************************** -->
+
+
+  <div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <img id="modal-img" src="../images/logo.png">
+        <h4 class="modal-title">ADD NEW DATA </h4>
+      </div>
+      <div class="modal-body">
+         <form action ="" method ="get">
+          
+           <p><label>Date:</label>  <input type="date" class="form-control" id="datebox" name="ID"></p>
+           <p><label>Department:</label>  <select type="text" class="form-control" id="department" name="ID"><option> Mixing</option><option>Cementing</option><option>Automation</option> </select></p>
+           <p><label>Shift:</label>  <select type="text" class="form-control" id="shift" name="ID"><option> 1ST</option><option>  2ND</option><option>3RD</option><option>  N/A</option> </select></p>
+           <p><label>Headcount:</label>  <input type="text" class="form-control" id="headcount" name="ID"></br></p>
+           <p><label>Total Absent:</label>  <input type="text" class="form-control" id="absent" name="ID"></br></p>
+           <p> <label>Reason:</label> <textarea class="form-control" id="reason" row= "4"></textarea>
+          
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" id="submit" onclick="">Submit</button>
+      </div>
+    </div>
+  </div>
+</div> 
+ 
+<!-- ********************* END OF ADD NEW DATA ****************************************** -->
+
+
+<!--        UPDATE                 -->
+<div id="myModal2" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <img id="modal-img" src="../images/logo.png">
+            <h4 class="modal-title">EDIT DATA</h4>
+        </div>
+        <div class="modal-body">
+          <form action ="" method ="get">
+           <p><label>ID:</label>  <input type="text" class="form-control" id="idin" name="ID" disabled></p>
+            <p><label>Date:</label>  <input type="date" class="form-control" id="dateboxin" name="ID"></p>
+           <p><label>Department:</label>  <input type="text" class="form-control" id="departmentin" name="ID"></p>
+           <p><label>Shift:</label>  <select type="text" class="form-control" id="shiftin" name="ID"> <option>1ST</option><option>  2ND</option><option>N/A</option> </select></p>
+           <p><label>Headcount:</label>  <input type="text" class="form-control" id="headcountin" name="ID"></br></p>
+           <p><label>Total Absent:</label>  <input type="text" class="form-control" id="absentin" name="ID"></br></p>
+           <p> <label>Reason:</label> <textarea class="form-control" id="reasonin" row= "4"></textarea>
+            
+          </form>
+                        
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal" id="edit">Edit</button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+<!--       ************************************************************************************************************                     --> 
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <img src="../Images/logo.png">
+      <p class="navbar-text" id="nav-id">Human Resources</p>
+    </div>
+  </div>
+</nav>
+<div class ="table-responsive">
+  <table id="myTable" class= "cell-border"  width="90%">
+    <thead class='thead-inverse'>
+      <tr>
+        <th>ID</th>
+        <th>Date</th>
+        <th>Department</th>
+        <th>Shift</th>
+        <th>Headcount</th>
+        <th>Total Absent</th>
+        <th>Reason</th>
+
+  
+      </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+      </table>
+  <div id="addnewshipment"><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" id="addNewData">ADD NEW DATA</button></div>
+  </div>
+ </body>
+</html> 

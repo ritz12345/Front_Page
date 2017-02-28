@@ -1,0 +1,119 @@
+<html>
+ <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Downtime</title>
+    <script src='js/jquery.min.js'></script>
+    <script src='js/core.js'></script>
+    <meta name="description" content="Bootstrap.">  
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="CSS/style1.css">
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"></style>
+    <script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>       
+ </head>
+ <body id="index_page">
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <img id="modal-img" src="../images/logo.png">
+        <h4 class="modal-title">Create New report</h4>
+      </div>
+      <div class="modal-body">
+         <form action ="" method ="get">
+          <!-- <p><label>ID:</label>  <input type="text" class="form-control" id="idbox" name="ID"></p> -->
+          <p><label>Date:</label>  <input type="date" class="form-control" id="datebox" name="ID"></p>
+          <p><label>Plant:</label>  <select type="text" class="form-control" id="plant" name="ID">
+            <option>  </option>
+            <option>  Grand Rapids</option>
+            <option>  Cadillac</option>
+          </select>
+          </p>
+          <p><label>Department:</label>  <select type="text" class="form-control" id="department" name="ID"> </select></p>
+          <p><label>Cell:</label>  <select type="text" class="form-control" id="cell" name="ID"></br></select></p>
+          <p><label>Shift:</label>  
+          <select class="form-control" id="shift">
+           <option>1ST</option>
+           <option>2ND</option>
+           <option>3RD</option>
+           <option>N/A</option>
+          </select></br></p>
+         
+          <p><label>Downtime:</label>  <select type="text" class="form-control" id="downtime" name="ID"></br><option> planned</option> <option> unplanned</option> </select></p>
+           <p><label>Code</label>
+          <select id="code_upd" type="text" class="form-control">
+            
+          </select>
+          </p>
+          <p><label>Duration:</label>  <input type="text" class="form-control" id="duration" name="ID"></br></p>
+
+          <p><label>Comments:</label>  <textarea class="form-control" id="comments" rows="4" ></textarea> </br></p>
+        </form>
+      </div>
+      <div  class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" id="submit_dwt" onclick="">Submit</button>
+      </div>
+    </div>
+  </div>
+</div> 
+
+ <div id="myModal2" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <img id="modal-img" src="../images/logo.png">
+            <h4 class="modal-title">EDIT</h4>
+        </div>
+        <div class="modal-body">
+          <form action ="" method ="get">
+            <p><label>ID:</label>  <input type="text" class="form-control" id="idin" name="ID" disabled></p>
+            <p><label>Date:</label>  <input type="text" class="form-control" id="datein" name="ID"></p>
+            <p><label>Plant Name:</label>  <input type="text" class="form-control" id= "plantin" name="ID"></p>
+            <p><label>Department:</label>  <input type="text" class="form-control" id="deptin"  name="ID"></p>
+            <p><label>Shift:</label>  <input type="text" class="form-control" id="shiftin" name="ID"></p>
+            <p><label>Cell:</label>  <input type="text" class="form-control" id="cellin" name="ID"></p>
+            <p><label>Downtime:</label>  <input type="text" class="form-control" id="downtimein" name="ID"></p>
+            <p><label>Code:</label>  <input type="text" class="form-control" id="codein" name="ID"></p>
+            <p><label>Duration:</label>  <input class="form-control" id="durationin" rows="4" ></input> </br></p>
+            <p><label>Comments:</label>  <textarea class="form-control" id="commentsin" rows="4" ></textarea> </br></p>
+          </form>
+                        
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal" id="edit_dwt">Edit</button>
+        </div>
+      </div>
+    </div>
+  </div> 
+  <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+        <img src="../Images/logo.png">
+        <p class="navbar-text" id="nav-id">Downtime</p>
+        </div>
+      </div>
+  </nav>
+    <div class ="table-responsive">
+      <table id="myTable_dwt" class= "cell-border"  width="90%">
+        <thead class='thead-inverse'>
+          <tr>
+            <th>ID</th>
+            <th>Date</th>
+            <th>Plant</th>
+            <th>Department</th>
+            <th>Shift</th>
+            <th>Cell</th>
+            <th>Downtime</th>
+            <th>Code</th>
+            <th>Duration</th>
+            <th>Comments</th>
+          </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
+      <div id="addnewshipment" ><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" id="addNewData_dwt">ADD NEW DATA</button></div>
+    </div>
+  </body>
+</html> 

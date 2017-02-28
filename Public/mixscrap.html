@@ -1,0 +1,119 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Mixing -Scrap / NC Report</title>
+    <script src='js/jquery.min.js'></script>
+    <script src='js/core.js'></script>
+    <meta name="description" content="Bootstrap.">  
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="CSS/style1.css">
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"></style>
+    <script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>       
+  </head>
+ <body id="index_page">
+
+
+<!-- ******************** ADD NEW DATA TO FINANCE TABLE  **************************** -->
+
+
+ <div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <img id="modal-img" src="../images/logo.png">
+        <h4 class="modal-title">ADD NEW DATA TO MIXING-SCRAP</h4>
+      </div>
+      <div class="modal-body">
+         <form action ="" method ="get">
+          
+          <p><label>Date:</label>  <input type="date" class="form-control" id="datebox" name="ID"></p>
+          <p><label>Shift:</label>  <select type="text" class="form-control" id="shift" name="ID"><option>1ST</option><option>2ND</option><option>3RD</option> <option>N/A</option> </select></p>
+          <p><label>Category:</label>  <input type="text" class="form-control" id="category" name="ID"></p>
+          <p><label>Code:</label>  <select type="text" class="form-control" id="code" name="ID"></select></br></p>
+          <p><label>Part Number:</label>  <input type="text" class="form-control" id="partno" name="ID"></br></p>
+          <p><label>Batches:</label>  <input type="text" class="form-control" id="batches" name="ID"></br></p>
+          <p><label>Weight:</label>  <input type="text" class="form-control" id="weight" name="ID"></br></p>
+          <p><label>Report Number:</label>  <input type="text" class="form-control" id="reportno" name="ID"></br></p>
+           <p><label>Comments:</label>  <textarea class="form-control" id="comments" rows="4" ></textarea> </br></p>
+          
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" id="submit_mixscrap" onclick="">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+<!-- ********************* END OF ADD NEW DATA ****************************************** -->
+
+
+<!--        UPDATE                 -->
+<div id="myModal2" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <img id="modal-img" src="../images/logo.png">
+            <h4 class="modal-title">EDIT</h4>
+        </div>
+        <div class="modal-body">
+          <form action ="" method ="get">
+            <p><label>ID:</label>  <input type="text" class="form-control" id="idin" name="ID" disabled></p>
+            <p><label>Date:</label>  <input type="date" class="form-control" id="dateboxin" name="ID"></p>
+          <p><label>Shift:</label>  <input type="text" class="form-control" id="shiftin" name="ID"></p>
+          <p><label>Category:</label>  <input type="text" class="form-control" id="categoryin" name="ID"></p>
+          <p><label>Code:</label>  <input type="text" class="form-control" id="codein" name="ID"></br></p>
+          <p><label>Part Number:</label>  <input type="text" class="form-control" id="partnoin" name="ID"></br></p>
+          <p><label>Batches:</label>  <input type="text" class="form-control" id="batchesin" name="ID"></br></p>
+          <p><label>Weight:</label>  <input type="text" class="form-control" id="weightin" name="ID"></br></p>
+          <p><label>Report Number:</label>  <input type="text" class="form-control" id="reportnoin" name="ID"></br></p>
+           <p><label>Comments:</label>  <textarea class="form-control" id="commentsin" rows="4" ></textarea> </br></p>
+          
+            
+          </form>
+                        
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal" id="edit_mixscrap">Edit</button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+<!--       ************************************************************************************************************                     --> 
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <img src="../images/logo.png">
+      <p class="navbar-text" id="nav-id">Mixing-Scrap/NC Report </p>
+    </div>
+  </div>
+</nav>
+<div class ="table-responsive">
+  <table id="myTable_mixscrap" class= "cell-border"  width="90%">
+    <thead class='thead-inverse'>
+      <tr>
+        <th>ID</th>
+        <th>Date</th>
+        <th>Shift</th>
+        <th>Category</th>
+        <th>Code</th>
+        <th>Part Number</th>
+        <th>Batches</th>
+        <th>Weight</th>
+        <th>Report Number</th>
+        <th>Comments</th>
+      </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+      </table>
+  <div id="addnewshipment"><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" id="addNewData_mixscrap">Create New Report </button></div>
+  </div>
+ </body>
+</html> 

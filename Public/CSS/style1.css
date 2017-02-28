@@ -1,0 +1,37 @@
+.navbar-text, #nav-id{
+  font-size: 35px;
+  font-weight: bold;
+  color: #bdbdbd;
+
+}
+.navbar{
+	background: #132057; 
+}
+img{
+	float: left;
+	margin-top: 26px;
+	margin-left:5px;
+	margin-right: 8px;
+}
+#addNewData_mixscrap,#addnewshipment,#addNewData, #addnewdata_delivery, #addNewData_dwt,#addNewData_quality{
+	 background: #132057;
+	 border: none;
+}
+.modal-header{
+	background: #132057; 
+
+}
+.modal-title{
+	color:#bdbdbd;
+	font-weight: bold;
+ 
+}
+#modal-img{
+   float: left;
+   font-size: 15px;
+   margin-top: 0px;
+}
+#addNewData_finance{
+	 background: #132057;
+	 border: none;
+}

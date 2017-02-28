@@ -1,0 +1,64 @@
+#front_page_body{
+  background: white;}
+ 
+ 
+
+.list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.list li {
+  
+  width: 50%;
+     }
+
+.list li img {
+  border: 1px solid black;
+  
+  
+  width: 200px;
+  height: 200px;
+}
+
+
+
+header h1{
+  text-align: center;
+}
+.main-header{
+  background: url("/Images/background.jpg");
+  background-repeat: no-repeat; 
+  height: 500px;
+ 
+  color: white;
+}
+
+.container{
+  max-width: 1024px;
+
+}
+
+section h2{
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  margin: 25px;
+  color: white;
+}
+
+#gr{
+  background: #232943;
+  border: none;
+  
+}
+#cad{
+  background: #232943;
+  border: none;
+}
+#common{
+  background: #232943;
+  border: none;
+}
+
+

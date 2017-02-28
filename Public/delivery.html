@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Delivery</title>
+    <script src='js/jquery.min.js'></script>
+    <script src='js/core.js'></script>
+    <meta name="description" content="Bootstrap.">  
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="CSS/style1.css">
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"></style>
+    <script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> 
+  </head>
+  <body id="index_page">
+    <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <img id="modal-img" src="../images/logo.png">
+            <h4 class="modal-title" >ADD NEW  DATA TO DELIVERY</h4>
+          </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label>Date</label>
+              <input type="date" class="form-control" id="datebox" >
+            </div>
+        <div class="form-group">
+          <label>Plant</label>
+          <select class="form-control" id="plant">
+            <option>  </option>
+            <option> Grand Rapids</option>
+            <option> Cadillac</option>
+          </select>
+          <label>Department</label>
+          <select class="form-control" id="dept">
+          </select>
+          <label>Customer</label>
+          <select class="form-control" id="cust">
+          </select>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Part Number</label>
+            <input type="email" class="form-control" id="partno">
+        </div>
+    <div class="form-group">
+    <label for="exampleInputEmail1">Quantity</label>
+    <input type="email" class="form-control" id="qty">
+    </div>
+    <div class="form-group">
+    <label for="exampleInputEmail1">Expedite</label>
+    <input type="email" class="form-control" id="expedite">
+    </div>
+    </div>
+    <div class="form-group">
+    <label for="exampleTextarea">Reason</label>
+    <textarea class="form-control" id="reason" rows="3"></textarea>
+    </div>
+
+    </form>
+    </div>
+    <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal" id="submit_delivery" onclick="">Submit</button>
+    </div>
+    </div>
+    </div>
+    </div>
+
+
+    <div id="myModal2" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+    <div class="modal-content">
+    <div class="modal-header">
+    <img id="modal-img" src="../images/logo.png">
+    <h4 class="modal-title">EDIT  DATA</h4>
+    </div>
+    <div class="modal-body">
+            
+    <form>
+    <div class="form-group">
+    <label>ID</label>
+    <input class="form-control" id="idin" >
+    </div>
+    <div class="form-group">
+    <label>Date</label>
+    <input type="date" class="form-control" id="dateboxin" >
+    </div>
+    <div class="form-group">
+    <label>Plant</label>
+    <select class="form-control" id="plantin">
+    <option>Grand Rapids</option>
+    <option>CAD</option>
+    </select>
+    <label>Department</label>
+    <select class="form-control" id="deptin">
+    </select>
+    <label>Customer</label>
+    <input class="form-control" id="custin">
+
+    </input>
+    <div class="form-group">
+    <label for="exampleInputEmail1">Part Number</label>
+    <input type="email" class="form-control" id="partnoin">
+    </div>
+    <div class="form-group">
+    <label for="exampleInputEmail1">Quantity</label>
+    <input type="email" class="form-control" id="qtyin">
+    </div>
+    <div class="form-group">
+    <label for="exampleInputEmail1">Expedite</label>
+    <input type="email" class="form-control" id="expeditein">
+    </div>
+    </div>
+    <div class="form-group">
+    <label for="exampleTextarea">Time</label>
+    <input class="form-control" id="timein" rows="3"></input>
+    </div>
+    <div class="form-group">
+    <label for="exampleTextarea">Reason</label>
+    <textarea class="form-control" id="reasonin" rows="3"></textarea>
+    </div>
+
+    </form>
+            
+    </div>
+    <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal" id="edit_delivery" onclick="">Edit</button>
+    </div>
+    </div>
+    </div>
+    </div>
+    <nav class="navbar navbar-default">
+    <div class="container-fluid">
+    <div class="navbar-header">
+    <img src="../images/logo.png">
+    <p class="navbar-text" id="nav-id">Delivery</p>
+    </div>
+    </div>
+    </nav>
+    <div class ="table-responsive">
+    <table id="myTable_delivery" class= "cell-border"  width="90%">
+    <thead class='thead-inverse'>
+    <tr>
+    <th>ID</th>
+    <th>Date Posted</th>
+    <th>Plant</th>
+    <th>Department</th>
+    <th>Customer</th>
+    <th>HAVS Part#</th>
+    <th>Quantity</th>
+    <th>Exp #</th>
+    <th>Time</th>
+    <th>Reason</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+    </table>
+    <div id="addnewshipment"><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" id="addnewdata_delivery">ADD NEW DATA</button></div>
+    </div>
+  </body>
+</html> 

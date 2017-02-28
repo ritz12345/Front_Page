@@ -1,0 +1,172 @@
+<html>
+ <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Quality</title>
+    <script src='js/jquery.min.js'></script>
+    <script src='js/core.js'></script>
+    <meta name="description" content="Bootstrap.">  
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="CSS/style1.css">
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"></style>
+    <script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>       
+ </head>
+ <body id="index_page">
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <img id="modal-img" src="../images/logo.png">
+          <h4 class="modal-title" >ADD NEW DATA TO QUALITY</h4>
+        </div>
+      <div class="modal-body">
+      <form>
+      <div class="form-group">
+      <label>Date</label>
+      <input type="date" class="form-control" id="datebox" >
+      </div>
+      <div class="form-group">
+      <label>Plant</label>
+      <select class="form-control" id="plant">
+      <option>Grand Rapids</option>
+      <option>CAD</option>
+      </select>
+      <label>Department</label>
+      <select class="form-control" id="department">
+      </select>
+      <label>Customer</label>
+      <select class="form-control" id="cust">
+      <option>Grand Rapids</option>
+      <option>CAD</option>
+      </select>
+      <div class="form-group">
+      <label for="exampleInputEmail1">Quality Altert No.</label>
+      <input type="email" class="form-control" id="qltyno">
+      </div>
+      <div class="form-group">
+      <label for="exampleInputEmail1">HAVS Part No.</label>
+      <input type="email" class="form-control" id="havs">
+      </div>
+      <div class="form-group">
+      <label for="exampleInputEmail1">Quantity Rejected</label>
+      <input type="email" class="form-control" id="rejected">
+      </div>
+      </div>
+      <div class="form-group">
+      <label for="exampleTextarea">Issue Description</label>
+      <textarea class="form-control" id="issue" rows="3"></textarea>
+      </div>
+      <div class="form-group">
+      <label>Date Closed</label>
+      <input type="date" class="form-control" id="dateclosedbox" >
+      </div
+      </form>
+  </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal" id="submit_quality" onclick="">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div id="myModal2" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <img id="modal-img" src="../images/logo.png">
+            <h4 class="modal-title">EDIT  DATA</h4>
+        </div>
+        <div class="modal-body">
+                        
+      <form>
+      <div class="form-group">
+      <label>ID</label>
+      <input class="form-control" id="idin" >
+      </div>
+      <div class="form-group">
+      <label>Date</label>
+      <input type="date" class="form-control" id="dateboxin" >
+      </div>
+      <div class="form-group">
+      <label>Plant</label>
+      <input class="form-control" id="plantin">
+      <label>Department</label>
+      <select class="form-control" id="deptin">
+      </select>
+      <label>Customer</label>
+      <input class="form-control" id="custin">
+     
+      </input>
+      <div class="form-group">
+      <label for="exampleInputEmail1">Quality Alert No</label>
+      <input type="email" class="form-control" id="qlityain">
+      </div>
+      <div class="form-group">
+      <label for="exampleInputEmail1">HAVS part No</label>
+      <input type="email" class="form-control" id="havsin">
+      </div>
+      <div class="form-group">
+      <label for="exampleInputEmail1">Quanity Rejected</label>
+      <input type="email" class="form-control" id="rejectedin">
+      </div>
+      </div>
+      <div class="form-group">
+      <label for="exampleTextarea">Issue Description</label>
+      <input class="form-control" id="issuein" rows="3"></input>
+      </div>
+      <div class="form-group">
+      <label for="exampleTextarea">Date Closed</label>
+      <input type="date" class="form-control" id="dateclosedin" ></input>
+      </div>
+
+      </form>
+                        
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal" id="edit_quality" onclick="">Edit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+ 
+
+
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+        <img src="../images/logo.png">
+        <p class="navbar-text" id="nav-id">Quality</p>
+        </div>
+      </div>
+    </nav>
+
+   
+    <div class ="table-responsive">
+      <table id="myTable_qualityapu" class= "cell-border"  width="90%">
+        <thead class='thead-inverse'>
+          <tr>
+            <th>ID</th>
+            <th>Date</th>
+            <th>Plant</th>
+            <th>Department</th>
+            <th>Customer</th>
+            <th>Quality Alert No.</th>
+            <th>HAVS part No.</th>
+            <th>Quantity Rejected</th>
+            <th>Issue Description</th>
+            <th>Date Closed</th>
+          </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
+      <div id="addnewshipment"><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" id="addNewData_quality">ADD NEW DATA</button></div>
+    </div>
+  </body>
+</html> 

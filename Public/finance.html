@@ -1,0 +1,109 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Finance</title>
+    <script src='js/jquery.min.js'></script>
+    <script src='js/core.js'></script>
+    <meta name="description" content="Bootstrap.">  
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="CSS/style1.css">
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"></style>
+    <script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>       
+  </head>
+ <body id="index_page">
+
+
+<!-- ******************** ADD NEW DATA TO FINANCE TABLE  **************************** -->
+
+
+ <div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <img id="modal-img" src="../images/logo.png">
+        <h4 class="modal-title">ADD NEW DATA TO LABOR</h4>
+      </div>
+      <div class="modal-body">
+         <form action ="" method ="get">
+          <!-- <p><label>ID:</label>  <input type="text" class="form-control" id="idbox" name="ID"></p> -->
+          <p><label>Date:</label>  <input type="date" class="form-control" id="datebox" name="ID"></p>
+          <p><label>Sales:</label>  <input type="text" class="form-control" id="sales" name="ID"></p>
+          <p><label>Scrap:</label>  <input type="text" class="form-control" id="scrap" name="ID"></p>
+          <p><label>Forecast:</label>  <input type="text" class="form-control" id="forecast" name="ID"></br></p>
+          <p><label>Inventory:</label>  <input type="text" class="form-control" id="inventory" name="ID"></br></p>
+          
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" id="submit_finance" onclick="">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ********************* END OF ADD NEW DATA ****************************************** -->
+
+
+<!--        UPDATE                 -->
+<div id="myModal2" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <img id="modal-img" src="../images/logo.png">
+            <h4 class="modal-title">EDIT LABOR DATA</h4>
+        </div>
+        <div class="modal-body">
+          <form action ="" method ="get">
+            <p><label>ID:</label>  <input type="text" class="form-control" id="idin" name="ID" disabled></p>
+            <p><label>Date:</label>  <input type="text" class="form-control" id="datein" name="ID"></p>
+            <p><label>Sales:</label>  <input type="text" class="form-control" id= "salesin" name="ID"></p>
+            <p><label>Scrap:</label>  <input type="text" class="form-control" id="scrapin"  name="ID"></p>
+            <p><label>Forecast:</label>  <input type="text" class="form-control" id="forecastin" name="ID"></p>
+            <p><label>Inventory:</label>  <input type="text" class="form-control" id="inventoryin" name="ID"></p>
+            
+          </form>
+                        
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal" id="edit_finance">Edit</button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+<!--       ************************************************************************************************************                     --> 
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <img src="../images/logo.png">
+      <p class="navbar-text" id="nav-id">Finance</p>
+    </div>
+  </div>
+</nav>
+<div class ="table-responsive">
+  <table id="myTable_finance" class= "cell-border"  width="90%">
+    <thead class='thead-inverse'>
+      <tr>
+        <th>ID</th>
+        <th>Date</th>
+        <th>Sales</th>
+        <th>Scrap</th>
+        <th>Forecast</th>
+        <th>Inventory</th>
+        <th>Forecast_PC</th>
+        <th>Scrap_PC</th>
+        <th>DOH</th>
+      </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+      </table>
+  <div id="addnewshipment"><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" id="addNewData_finance">ADD NEW DATA</button></div>
+  </div>
+ </body>
+</html> 
