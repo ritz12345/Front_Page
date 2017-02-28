@@ -445,7 +445,7 @@ $("#submit_mixeff").click(function(){
         }else {
           st+="<option>Cementing</option>";
          st+="<option>Assembly </option>";
-         st+="<option>Moulding</option>"
+         st+="<option>Molding</option>"
           st+="<option>Automation</option>"
         }
         $("#dept").html(st);
