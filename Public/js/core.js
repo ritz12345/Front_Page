@@ -818,7 +818,7 @@ $("#submit_delivery").click(function(){
         },
          rowCallback : function( row, data, index ) {
                       $(row).click(function(row, data, index){
-                        var myModalIDs = ["idin", "reportin","date_postedin","alertsevin","plantin","deptind","areain","injuryin","date_closedin"];
+                        var myModalIDs = ["idin", "reportin","date_postedin","alertsevin","plantin","deptin","Shiftin","areain","injuryin","date_closedin"];
                       for (var i=0; i<data.length; i++)
                         {
                             $('#' + myModalIDs[i]).val(data[i])
@@ -843,12 +843,13 @@ $("#submit_delivery").click(function(){
          alertsevin=$("#alertsevin").val(),
          plantin=$("#plantin").val(),
          deptin=$("#deptin").val(),
+         shiftin=$("#Shiftin").val(),
          areain=$("#areain").val(),
          injuryin=$("#injuryin").val(),
          date_closedin=$("#date_closedin").val();
         
 
-          var update_data = {idin,reportin,date_postedin,alertsevin,plantin,deptin,areain,injuryin,date_closedin};
+          var update_data = {idin,reportin,date_postedin,alertsevin,plantin,deptin,shiftin,areain,injuryin,date_closedin};
         
          $.ajax({
           url         :"/update_cell_safety",
@@ -921,6 +922,7 @@ $("#submit_delivery").click(function(){
         report_id   =$("#report_id").val(),
         plant   =$("#plant").val(),
         department=$("#department").val(),
+        shift=$("#shift").val(),
         area =$("#area").val(),
         alertsev=$("#alertsev").val(),
         category=$("#category").val(),
@@ -931,7 +933,7 @@ $("#submit_delivery").click(function(){
         corrective =$("#corrective").val(),
         comments=$("#comments").val(),
         date_closed=$("#date_closed").val();
-        var new_data  = {date_posted,report_id,plant,department,area,alertsev,category,injury,osha,alert,issue,corrective,comments,date_closed};
+        var new_data  = {date_posted,report_id,plant,department, shift,area,alertsev,category,injury,osha,alert,issue,corrective,comments,date_closed};
         console.log(new_data);
         $.ajax({
                 url         :"/insert_cell_safety",

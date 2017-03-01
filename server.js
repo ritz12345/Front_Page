@@ -656,7 +656,7 @@ app.get('/some_data_safety', (req, res) => {
     req.query['start'] = parseInt(req.query['start']);
     req.query['length'] = parseInt(req.query['length']);
 
-    var sql = 'SELECT COUNT(*) FROM `safety`; SELECT id as ID, incident_report_id as report_id,  DATE_FORMAT(`date`, "%Y-%m-%d") as Date_posted, alert_severity as alert_severity, plant as plant, dpt_name as department, area as area, injury_type as injury_type,  DATE_FORMAT(`date_closed`, "%Y-%m-%d") as date_closed FROM `safety` LIMIT {start}, {length}'.formatSQL(req.query);
+    var sql = 'SELECT COUNT(*) FROM `safety`; SELECT id as ID, incident_report_id as report_id,  DATE_FORMAT(`date`, "%Y-%m-%d") as Date_posted, alert_severity as alert_severity, plant as plant, dpt_name as department, shift as shift, area as area, injury_type as injury_type,  DATE_FORMAT(`date_closed`, "%Y-%m-%d") as date_closed FROM `safety` LIMIT {start}, {length}'.formatSQL(req.query);
 
     
     console.log( sql )
@@ -704,7 +704,7 @@ app.get('/some_data_safety', (req, res) => {
 
 app.post("/update_cell_safety", (req,res)=>{
     console.log("UPDATE:", req.body);
-    var updatesql ="UPDATE `alex`.`safety` SET `incident_report_id`={reportin},`date` = {date_postedin}, `dpt_name` = {deptin}, `area`={areain},`injury_type`={injuryin},`date_closed`={date_closedin} WHERE `safety`.`id` = {idin};".formatSQL(req.body);
+    var updatesql ="UPDATE `alex`.`safety` SET `incident_report_id`={reportin},`date` = {date_postedin}, `dpt_name` = {deptin},`shift`={shiftin} ,`area`={areain},`injury_type`={injuryin},`date_closed`={date_closedin} WHERE `safety`.`id` = {idin};".formatSQL(req.body);
     db.query(updatesql, function(err){if (err) throw err;});
 })
 
@@ -720,7 +720,7 @@ app.get("/injury_type",(req,res)=>{
 })
 app.post("/insert_cell_safety", (req,res)=> {
   //console.log("INPUT********:" , req.body);
-  var insertsql = "INSERT INTO `alex`.`safety` ( `date`, `plant`, `dpt_name`, `incident_report_id`, `injury_type` ,`issue`,`area`,`alert_severity`,`osha_report`,`correction`,`submitted`,`comments`,`date_closed`) VALUES ({date_posted}, {plant}, {department}, {report_id}, {injury},{issue},{area},{alertsev},{osha},{corrective},{alert},{comments},{date_closed});".formatSQL(req.body);    
+  var insertsql = "INSERT INTO `alex`.`safety` ( `date`, `plant`, `dpt_name`, `shift`,`category`, `incident_report_id`, `injury_type` ,`issue`,`area`,`alert_severity`,`osha_report`,`correction`,`submitted`,`comments`,`date_closed`) VALUES ({date_posted}, {plant}, {department}, {shift},{category},{report_id}, {injury},{issue},{area},{alertsev},{osha},{corrective},{alert},{comments},{date_closed});".formatSQL(req.body);    
   db.query(insertsql, function(err){if (err) throw err;});
 
 })
