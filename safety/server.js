@@ -160,3 +160,12 @@ app.get('/some_data_safety', (req, res) => {
 
 // })
 
+app.get("/alert_severity",(req,res)=>{
+  var sql = 'SELECT * FROM `alert_severity`;'
+  db.query(sql, function(err,data){if (err) throw err; res.send( JSON.stringify(data));});
+})
+app.get("/injury_type",(req,res)=>{
+  var sql = 'SELECT * FROM `injury`;'
+  db.query(sql, function(err,data){if (err) throw err; res.send( JSON.stringify(data));});
+})
+

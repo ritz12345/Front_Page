@@ -417,9 +417,9 @@ $("#submit_mixeff").click(function(){
        var dept             = $("#deptin").val();
        var cust             = $("#custin").val();
        var part             = $("#partnoin").val();
-       var qty              =$("#qtyin").val();
-       var expedite         =$("#expeditein").val();
-       var reason           =$("#reasonin").val(); 
+       var qty              = $("#qtyin").val();
+       var expedite         = $("#expeditein").val();
+       var reason           = $("#reasonin").val(); 
     
        
        var updated_data  = {id,newdateid,plant,dept,cust,part,qty,expedite,reason};
@@ -439,14 +439,14 @@ $("#submit_mixeff").click(function(){
         var st="";
 
         if($("#plant").val()=="Grand Rapids"){
-           st+= "<option> Mixing</option>";
+          st+= "<option> Mixing</option>";
           st+="<option>Cementing</option>";
           st+="<option>Automation</option>"
         }else {
           st+="<option>Cementing</option>";
-         st+="<option>Assembly </option>";
-         st+="<option>Molding</option>"
-          st+="<option>Automation</option>"
+          st+="<option>Assembly </option>";
+          st+="<option>Molding</option>";
+          st+="<option>Automation</option>";
         }
         $("#dept").html(st);
 
