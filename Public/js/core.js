@@ -809,9 +809,9 @@ $("#submit_delivery").click(function(){
 
  $('#myTable_safety').DataTable({
          createdRow  : function(row,data,index){
-             console.log(data[8]);
+             console.log(data[9]);
              
-            if(data[8] == "0000-00-00"){
+            if(data[9] == "0000-00-00"){
 
               $(row).css('color','red')
             }
@@ -870,11 +870,11 @@ $("#submit_delivery").click(function(){
                 var alert =[];
                 var data = JSON.parse(data.responseText);
                 console.log(data);
-                for (var i = 1; i < data.length; i++) {
+                for (var i = 0; i < data.length; i++) {
                     alert[i] =data[i].alert_sev; 
                 } 
                 var st="";
-                for (var i = 1; i < alert.length; i++) {
+                for (var i = 0; i < alert.length; i++) {
                   st += "<option>" + alert[i]+ "</option>";
                 }
                 $("#alertsev").html( st );  
