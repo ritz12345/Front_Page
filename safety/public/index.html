@@ -13,7 +13,7 @@
  </head>
  <body id="index_page">
 
- <!-- <div id="myModal" class="modal fade" role="dialog">
+ <div id="myModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -21,45 +21,91 @@
           <h4 class="modal-title">ADD NEW DATA TO SAFETY</h4>
         </div>
       <div class="modal-body">
-      <form><input type="date"  id="datebox"></form> 
-        <table class="table table-striped">
-                <thead>
-                <tr><td>Code</td><td>Name</td><td>Hour</td></tr>
-                </thead>
-                <tbody>
-                  <tr><td id="code_0">12330</td><td id="name_0">Cementing</td><td><input type="text" class="form-control" name="ID" id="hour_0"></td></tr>
-                  <tr><td id="code_1">12360</td><td id="name_1">Automation</td><td><input type="text" class="form-control" id="hour_1"  name="ID"></td></tr>
-                  <tr><td id="code_2">12420</td><td id="name_2">Material Handlers</td><td><input type="text" class="form-control" id="hour_2"  name="ID"></td></tr>
-                  <tr><td id="code_3">12510</td><td id="name_3">Factory Administration</td><td><input type="text" class="form-control" id="hour_3"  name="ID"></td></tr>
-                  <tr><td id=code_4>12515</td><td id="name_4">Receiving</td><td><input type="text" class="form-control" id="hour_4" name="ID"> </td></tr>
-                  <tr><td id="code_5">12520</td><td id="name_5">Maintenance</td><td><input type="text" class="form-control" id="hour_5" name="ID"></td></tr>
-                  <tr><td id="code_6">12530</td><td id="name_6">Quality</td><td><input type="text" class="form-control" id="hour_6" name="ID"></td></tr>
-                  <tr><td id="code_7">12720</td><td id="name_7">Shipping</td><td><input type="text" class="form-control" id="hour_7"  name="ID"></td></tr>
-                  <tr><td id="code_8">16310</td><td id="name_8">Mixing</td><td><input type="text" class="form-control" id="hour_8"  name="ID"></td></tr>
+          <form>
+            <div class="form-group">
+              <label>Date Posted</label>
+              <input type="date" id="date_poated" class="form-control">
+            </div>
+            <div class="form-group">
+              <label>Incident Report ID</label>
+              <input type="text" name="" id="report_id" class="form-control">
+            </div>
+            <div class="form-group">
+            <label>Plant</label>
+            <select class="form-control">
+              <option>GR</option>
+              <option>CAD</option>
+            </select>
+           </div>
+           <div class="form-group">
+            <label>Department</label>
+            <select class="form-control">
+            </select>
+           </div>
+           <div class="form-group">
+            <label>Area</label>
+            <input type="text" class="form-control">
+           </div>
+           <div class="form-group">
+            <label>Alert Severity</label>
+            <select class="form-control">
+            </select>
+           </div>
+           <div class="form-group">
+            <label>Category</label>
+            <select class="form-control">
+          
+            </select>
+           </div>
+           <div class="form-group">
+            <label>Injury type</label>
+            <select class="form-control">
+          
+            </select>
+           </div>
+           <div class="form-group">
+            <label>OSHA Reportable</label>
+            <select class="form-control">
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+           </div>
+           <div class="form-group">
+            <label>Alert Submitted</label>
+            <select class="form-control">
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+            </div>
+          <div class="form-group">
+            <label for="exampleTextarea">Isuue Description</label>
+            <textarea class="form-control" id="issue" rows="3"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="exampleTextarea">Corrective Action</label>
+            <textarea class="form-control" id="corrective" rows="3"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="exampleTextarea">Comments</label>
+            <textarea class="form-control" id="comments" rows="3"></textarea>
+          </div>
+            <div class="form-group">
+              <label>Date Closed</label>
+              <input type="date" id="date_closed" class="form-control">
+            </div>
+          
 
-                </tbody>
-
-              </table>  -->
-
-
-
-
-
-           
-
-
-           
-      
-    <!--   </div>
-      <div class="modal-footer">
+       
+       </div>
+        <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal" id="submit_labor" onclick="">Submit</button>
+        </div>
       </div>
     </div>
-  </div>
 </div>
 
 
-  <div id="myModal2" class="modal fade" role="dialog">
+<!--   <div id="myModal2" class="modal fade" role="dialog">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
