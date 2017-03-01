@@ -168,4 +168,14 @@ app.get("/injury_type",(req,res)=>{
   var sql = 'SELECT * FROM `injury`;'
   db.query(sql, function(err,data){if (err) throw err; res.send( JSON.stringify(data));});
 })
+app.post("/insert_cell_safety", (req,res)=> {
+        console.log("INPUT********:" , req.body);
+        // res.send((req.body));
+       
+   var insertsql = "INSERT INTO `alex`.`safety` ( `date`, `plant`, `dpt_name`, `incident_report_id`, `injury_type` ,`issue`,`area`,`alert_severity`,`osha_report`,`correction`,`submitted`,`comments`,`date_closed`) VALUES ({date_posted}, {plant}, {department}, {report_id}, {injury},{issue},{area},{alertsev},{osha},{corrective},{alert},{comments},{date_closed});".formatSQL(req.body);    
+ //var insertsql= "INSERT INTO `alex`.`delivery` ( `date`, `plant_name`, `dpt_name`, `customer`, `havs_part_nb` ,`quantity`,`expedite_nb`, `shuttle_time`,`comments`) VALUES ();"     
+         
+           db.query(insertsql, function(err){if (err) throw err;});
+
+})
 

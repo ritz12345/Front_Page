@@ -72,4 +72,37 @@ $(document).ready(function () {
          $("#department").html(st);
         })
     })
+    $("#submit_safety").click(function(){
+        var date_posted =$("#date_posted").val(),
+        report_id   =$("#report_id").val(),
+        plant   =$("#plant").val(),
+        department=$("#department").val(),
+        area =$("#area").val(),
+        alertsev=$("#alertsev").val(),
+        category=$("#category").val(),
+        injury =$("#injury").val(),
+        osha =$("#osha").val(),
+        alert =$("#alert").val(),
+        issue =$("#issue").val(),
+        corrective =$("#corrective").val(),
+        comments=$("#comments").val(),
+        date_closed=$("#date_closed").val();
+
+       
+         
+    
+        var new_data  = {date_posted,report_id,plant,department,area,alertsev,category,injury,osha,alert,issue,corrective,comments,date_closed};
+        console.log(new_data);
+        $.ajax({
+                url         :"/insert_cell_safety",
+                type        : "POST",
+                contentType : "application/json",
+                data        : JSON.stringify(new_data),
+                processData : false
+        });
+      })
+
+
+    
+
 })
