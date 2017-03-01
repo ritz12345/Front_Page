@@ -1,0 +1,195 @@
+<html>
+ <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Safety</title>
+    <script src='js/jquery.min.js'></script>
+    <script src='js/core.js'></script>
+    <meta name="description" content="Bootstrap.">  
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"></style>
+    <script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>       
+ </head>
+ <body id="index_page">
+
+ <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <img id="modal-img" src="../images/logo.png">
+          <h4 class="modal-title">ADD NEW DATA TO SAFETY</h4>
+        </div>
+      <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label>Date Posted</label>
+              <input type="date" id="date_posted" class="form-control">
+            </div>
+            <div class="form-group">
+              <label>Incident Report ID</label>
+              <input type="text" name="" id="report_id" class="form-control">
+            </div>
+            <div class="form-group">
+            <label>Plant</label>
+            <select class="form-control" id="plant">
+              <option>GR</option>
+              <option>CAD</option>
+            </select>
+           </div>
+           <div class="form-group" >
+            <label>Department</label>
+            <select class="form-control" id="department">
+            </select>
+           </div>
+           <div class="form-group">
+            <label>Area</label>
+            <input type="text" class="form-control" id="area">
+           </div>
+           <div class="form-group">
+            <label>Alert Severity</label>
+            <select class="form-control" id="alertsev">
+            </select>
+           </div>
+           <div class="form-group">
+            <label>Category</label>
+            <select class="form-control" id="category">
+            <option>Employee</option>
+            <option>Temp</option>
+            <option>Contractor</option>
+            <option>Visitors</option>
+            <option>N/A</option>
+            </select>
+           </div>
+           <div class="form-group">
+            <label>Injury type</label>
+            <select class="form-control" id="injury">
+          
+            </select>
+           </div>
+           <div class="form-group">
+            <label>OSHA Reportable</label>
+            <select class="form-control" id="osha">
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+           </div>
+           <div class="form-group">
+            <label>Alert Submitted</label>
+            <select class="form-control" id="alert">
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+            </div>
+          <div class="form-group">
+            <label for="exampleTextarea">Isuue Description</label>
+            <textarea class="form-control" id="issue" rows="3"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="exampleTextarea">Corrective Action</label>
+            <textarea class="form-control" id="corrective" rows="3"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="exampleTextarea">Comments</label>
+            <textarea class="form-control" id="comments" rows="3"></textarea>
+          </div>
+            <div class="form-group">
+              <label>Date Closed</label>
+              <input type="date" id="date_closed" class="form-control">
+            </div>
+          
+
+       
+       </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal" id="submit_safety" onclick="">Submit</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+  <div id="myModal2" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <img id="modal-img" src="../images/logo.png">
+            <h4 class="modal-title">EDIT SAFETY DATA</h4>
+        </div>
+        <div class="modal-body">
+           <div class="form-group">
+              <label> ID</label>
+              <input type="text" id="idin" class="form-control" disabled>
+          </div>
+           <div class="form-group">
+              <label>Incident Report ID</label>
+              <input type="text" id="reportin" class="form-control">
+          </div>             
+          <div class="form-group">
+              <label>Date Posted</label>
+              <input type="date" id="date_postedin" class="form-control">
+          </div>
+
+           
+           <div class="form-group">
+              <label>Alert Severity</label>
+              <input type="text" id="alertsevin" class="form-control">
+          </div>
+           <div class="form-group">
+              <label>Plant</label>
+              <input type="text" id="plantin" class="form-control">
+          </div>
+          <div class="form-group">
+              <label>Department</label>
+              <input type="text" id="deptin" class="form-control">
+          </div>
+           <div class="form-group">
+              <label>Area</label>
+              <input type="text" id="areain" class="form-control">
+          </div>
+           <div class="form-group">
+              <label>Injury Type</label>
+              <input type="text" id="injuryin" class="form-control">
+          </div>
+           <div class="form-group">
+              <label>Date Closed</label>
+              <input type="date" id="date_closedin" class="form-control">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal" id="edit_safety" onclick="">Edit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+        <img src="../images/logo.png">
+        <p class="navbar-text" id="nav-id">SAFETY</p>
+        </div>
+      </div>
+    </nav>
+    <div class ="table-responsive">
+      <table id="myTable_safety" class= "cell-border"  width="90%">
+        <thead class='thead-inverse'>
+          <tr>
+            <th>ID</th>
+            <th>Incident Report ID</th>
+            <th>Date Posted</th>
+            <th>Alert Sensetivity</th>
+            <th>Plant</th>
+            <th>Department</th>
+            <th>Area</th>
+            <th>Injury Type</th>
+            <th>Date Closed</th>
+          </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
+      <div id="addnewshipment"><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" id="addNewData_safety">ADD NEW DATA</button></div>
+    </div>
+  </body>
+</html> 

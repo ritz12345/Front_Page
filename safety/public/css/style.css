@@ -13,7 +13,7 @@ img{
 	margin-left:5px;
 	margin-right: 8px;
 }
-#addNewData_safety,#addNewData_mixscrap,#addnewshipment,#addNewData, #addnewdata_delivery, #addNewData_dwt,#addNewData_quality{
+#addnewshipment,#addNewData{
 	 background: #132057;
 	 border: none;
 }
@@ -30,8 +30,4 @@ img{
    float: left;
    font-size: 15px;
    margin-top: 0px;
-}
-#addNewData_finance{
-	 background: #132057;
-	 border: none;
 }
