@@ -1,9 +1,16 @@
 $(document).ready(function () {
-
     $('#myTable_safety').DataTable({
+         createdRow  : function(row,data,index){
+             console.log(data[8]);
+             
+            if(data[8] == "0000-00-00"){
+
+              $(row).css('color','red')
+            }
+        },
          rowCallback : function( row, data, index ) {
                       $(row).click(function(row, data, index){
-                        var myModalIDs = ["date_postedin","reportin","alertsevin","plantin","areain","injuryin","date_closedin"];
+                        var myModalIDs = ["idin", "reportin","date_postedin","alertsevin","plantin","deptind","areain","injuryin","date_closedin"];
                       for (var i=0; i<data.length; i++)
                         {
                             $('#' + myModalIDs[i]).val(data[i])
@@ -21,7 +28,28 @@ $(document).ready(function () {
          ajax       :"/some_data_safety"
     });
 
+     $("#edit_safety").click(function(){
+         var idin=$("#idin").val(), 
+         reportin =$("#reportin").val(),
+         date_postedin=$("#date_postedin").val(),
+         alertsevin=$("#alertsevin").val(),
+         plantin=$("#plantin").val(),
+         deptin=$("#deptin").val(),
+         areain=$("#areain").val(),
+         injuryin=$("#injuryin").val(),
+         date_closedin=$("#date_closedin").val();
+        
 
+          var update_data = {idin,reportin,date_postedin,alertsevin,plantin,deptin,areain,injuryin,date_closedin};
+        
+         $.ajax({
+          url         :"/update_cell_safety",
+          type        : "POST",
+          contentType : "application/json",
+          data        : JSON.stringify(update_data),
+          processData : false
+        }); 
+    });
     $("#addNewData_safety").click(function(){
          $.ajax({
            
@@ -64,11 +92,7 @@ $(document).ready(function () {
 
             }
          })
-
-
-
-
-         $("#plant").change(function(){
+        $("#plant").change(function(){
          var st="";
          if($("#plant").val()=="GR"){
            console.log($("#plant").val())
@@ -99,10 +123,6 @@ $(document).ready(function () {
         corrective =$("#corrective").val(),
         comments=$("#comments").val(),
         date_closed=$("#date_closed").val();
-
-       
-         
-    
         var new_data  = {date_posted,report_id,plant,department,area,alertsev,category,injury,osha,alert,issue,corrective,comments,date_closed};
         console.log(new_data);
         $.ajax({
@@ -113,8 +133,4 @@ $(document).ready(function () {
                 processData : false
         });
       })
-
-
-    
-
 })

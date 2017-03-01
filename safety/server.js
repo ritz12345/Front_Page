@@ -83,7 +83,7 @@ app.get('/some_data_safety', (req, res) => {
     req.query['start'] = parseInt(req.query['start']);
     req.query['length'] = parseInt(req.query['length']);
 
-    var sql = 'SELECT COUNT(*) FROM `safety`; SELECT id as Report_ID,  DATE_FORMAT(`date`, "%Y-%m-%d") as Date_posted, alert_severity as alert_severity, plant as plant, dpt_name as department, area as area, injury_type as injury_type,  DATE_FORMAT(`date_closed`, "%Y-%m-%d") as date_closed FROM `safety` LIMIT {start}, {length}'.formatSQL(req.query);
+    var sql = 'SELECT COUNT(*) FROM `safety`; SELECT id as ID, incident_report_id as report_id,  DATE_FORMAT(`date`, "%Y-%m-%d") as Date_posted, alert_severity as alert_severity, plant as plant, dpt_name as department, area as area, injury_type as injury_type,  DATE_FORMAT(`date_closed`, "%Y-%m-%d") as date_closed FROM `safety` LIMIT {start}, {length}'.formatSQL(req.query);
 
     
     console.log( sql )
@@ -129,36 +129,13 @@ app.get('/some_data_safety', (req, res) => {
 });
 
 
-// app.post("/update_cell_labor", (req,res)=>{
-//     console.log("UPDATE:", req.body);
-//     var updatesql ="UPDATE `alex`.`labor` SET `date` = {newdateid}, `dpt_code` = {newcodeid}, `dpt_name` = {newnameid}, `hours_worked`={newhoursid} WHERE `labor`.`id` = {id};".formatSQL(req.body);
-//     db.query(updatesql, function(err){if (err) throw err;});
-// })
+app.post("/update_cell_safety", (req,res)=>{
+    console.log("UPDATE:", req.body);
+    var updatesql ="UPDATE `alex`.`safety` SET `incident_report_id`={reportin},`date` = {date_postedin}, `dpt_name` = {deptin}, `area`={areain},`injury_type`={injuryin},`date_closed`={date_closedin} WHERE `safety`.`id` = {idin};".formatSQL(req.body);
+    db.query(updatesql, function(err){if (err) throw err;});
+})
 
-//  app.post("/insert_cell_labor", (req,res)=> {
-//         console.log("INPUT********:" , req.body);
-//         res.send((req.body));
-//         var x= req.body.code;
-//         var y=req.body.date;
-//         var z =req.body.name;
-//         var w =req.body.hours;
-//         y="'"+y+"'"
-//         console.log(y);
-//         //console.log(formatSQL(req.body));
-//         //var insertsql= "INSERT INTO `alex`.`labor` (`id`, `date`, `dpt_code`, `dpt_name`, `hours_worked`) VALUES (NULL, '2017-01-31', '', '', '');"     
-//          var insertsql = "INSERT INTO `alex`.`labor` ( `date`, `dpt_code`,`dpt_name`,`hours_worked`) VALUES("+y+",'" +x[0]+"','"+z[0]+"','"+w[0]+"'),"
-//          insertsql+="("+y+",'" +x[1]+"','"+z[1]+"','"+w[1]+"'),"
-//          insertsql+="("+y+",'" +x[2]+"','"+z[2]+"','"+w[2]+"'),"
-//          insertsql+="("+y+",'" +x[3]+"','"+z[3]+"','"+w[3]+"'),"
-//          insertsql+="("+y+",'" +x[4]+"','"+z[4]+"','"+w[4]+"'),"
-//          insertsql+="("+y+",'" +x[5]+"','"+z[5]+"','"+w[5]+"'),"
-//          insertsql+="("+y+",'" +x[6]+"','"+z[6]+"','"+w[6]+"'),"
-//          insertsql+="("+y+",'" +x[7]+"','"+z[7]+"','"+w[7]+"'),"
-//          insertsql+="("+y+",'" +x[8]+"','"+z[8]+"','"+w[8]+"');"
-//          // var insertsql = "INSERT INTO `alex`.`labor` ( `date`) VALUES (STR_TO_DATE(" +y+ ")"+ ");"
-//             db.query(insertsql, function(err){if (err) throw err;});
 
-// })
 
 app.get("/alert_severity",(req,res)=>{
   var sql = 'SELECT * FROM `alert_severity`;'
@@ -169,13 +146,9 @@ app.get("/injury_type",(req,res)=>{
   db.query(sql, function(err,data){if (err) throw err; res.send( JSON.stringify(data));});
 })
 app.post("/insert_cell_safety", (req,res)=> {
-        console.log("INPUT********:" , req.body);
-        // res.send((req.body));
-       
-   var insertsql = "INSERT INTO `alex`.`safety` ( `date`, `plant`, `dpt_name`, `incident_report_id`, `injury_type` ,`issue`,`area`,`alert_severity`,`osha_report`,`correction`,`submitted`,`comments`,`date_closed`) VALUES ({date_posted}, {plant}, {department}, {report_id}, {injury},{issue},{area},{alertsev},{osha},{corrective},{alert},{comments},{date_closed});".formatSQL(req.body);    
- //var insertsql= "INSERT INTO `alex`.`delivery` ( `date`, `plant_name`, `dpt_name`, `customer`, `havs_part_nb` ,`quantity`,`expedite_nb`, `shuttle_time`,`comments`) VALUES ();"     
-         
-           db.query(insertsql, function(err){if (err) throw err;});
+  //console.log("INPUT********:" , req.body);
+  var insertsql = "INSERT INTO `alex`.`safety` ( `date`, `plant`, `dpt_name`, `incident_report_id`, `injury_type` ,`issue`,`area`,`alert_severity`,`osha_report`,`correction`,`submitted`,`comments`,`date_closed`) VALUES ({date_posted}, {plant}, {department}, {report_id}, {injury},{issue},{area},{alertsev},{osha},{corrective},{alert},{comments},{date_closed});".formatSQL(req.body);    
+  db.query(insertsql, function(err){if (err) throw err;});
 
 })
 
