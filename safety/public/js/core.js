@@ -1,6 +1,17 @@
 $(document).ready(function () {
 
     $('#myTable_safety').DataTable({
+         rowCallback : function( row, data, index ) {
+                      $(row).click(function(row, data, index){
+                        var myModalIDs = ["date_postedin","reportin","alertsevin","plantin","areain","injuryin","date_closedin"];
+                      for (var i=0; i<data.length; i++)
+                        {
+                            $('#' + myModalIDs[i]).val(data[i])
+                        }
+
+                        $("#myModal2").modal("show");
+                      }.bind(this, row, data, index));
+                      },
          processing :   true,
          ordering   :   true,
          serverSide :   true,
@@ -13,6 +24,7 @@ $(document).ready(function () {
 
     $("#addNewData_safety").click(function(){
          $.ajax({
+           
             url: "/alert_severity",
             type:"GET",
             contentType:"application/json",
