@@ -300,7 +300,7 @@ $("#submit_mixeff").click(function(){
   $('#myTable_mixscrap').DataTable({
         rowCallback : function( row, data, index ) {
                       $(row).click(function(row, data, index){
-                        var myModalIDs = ["idin","dateboxin","shiftin","categoryin","codein","partnoin","batchesin","weightin","reportnoin","commentsin" ];
+                        var myModalIDs = ["idin","dateboxin","shiftin","categoryin","partnoin","codein","batchesin","weightin","reportnoin","commentsin" ];
                         for (var i=0; i<data.length; i++)
                         {
                             $('#' + myModalIDs[i]).val(data[i])
