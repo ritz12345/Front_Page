@@ -419,10 +419,11 @@ $("#submit_mixeff").click(function(){
        var part             = $("#partnoin").val();
        var qty              = $("#qtyin").val();
        var expedite         = $("#expeditein").val();
+       var timein           =$("#timein").val();
        var reason           = $("#reasonin").val(); 
     
        
-       var updated_data  = {id,newdateid,plant,dept,cust,part,qty,expedite,reason};
+       var updated_data  = {id,newdateid,plant,dept,cust,part,qty,expedite,timein,reason};
        console.log(updated_data);
          $.ajax({
                url         :"/update_cell_delivery",
@@ -482,12 +483,12 @@ $("#submit_delivery").click(function(){
         var partno=$("#partno").val();
         var quantity =$("#qty").val();
         var expedite=$("#expedite").val();
-        
+        var time =$("#time").val();
         var reason =$("#reason").val();
        
          
     
-        var new_data  = {date,plant,department,customer,partno, quantity,expedite,reason};
+        var new_data  = {date,plant,department,customer,partno, quantity,expedite,time,reason};
         console.log(new_data);
         $.ajax({
                 url         :"/insert_cell_delivery",
@@ -890,11 +891,11 @@ $("#submit_delivery").click(function(){
                 var injury =[];
                 var data = JSON.parse(data.responseText);
                 console.log(data);
-                for (var i = 1; i < data.length; i++) {
+                for (var i = 0; i < data.length; i++) {
                     injury[i] =data[i].injury_type; 
                 } 
                 var st="";
-                for (var i = 1; i < injury.length; i++) {
+                for (var i = 0; i < injury.length; i++) {
                   st += "<option>" + injury[i]+ "</option>";
                 }
                 $("#injury").html( st );  

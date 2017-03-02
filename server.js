@@ -445,7 +445,7 @@ app.get('/some_data_delivery', (req, res) => {
     req.query['start'] = parseInt(req.query['start']);
     req.query['length'] = parseInt(req.query['length']);
 
-    var sql = 'SELECT COUNT(*) FROM `delivery_apu`; SELECT id as ID,  DATE_FORMAT(`date`, "%Y-%m-%d") as Date, plant_name as plantname, dpt_name as dpt_name, customer as customer, havs_part_nb as havs_part_nb,quantity as quantity, expedite_nb as expedite, Time(shuttle_time),comments as reason FROM `delivery_apu` LIMIT {start}, {length}'.formatSQL(req.query);
+    var sql = 'SELECT COUNT(*) FROM `delivery_apu`; SELECT id as ID,  DATE_FORMAT(`date`, "%Y-%m-%d") as Date, plant_name as plantname, dpt_name as dpt_name, customer as customer, havs_part_nb as havs_part_nb,quantity as quantity, expedite_nb as expedite, Time as time,comments as reason FROM `delivery_apu` LIMIT {start}, {length}'.formatSQL(req.query);
 
     
     console.log( sql )
@@ -485,7 +485,7 @@ app.get('/some_data_delivery', (req, res) => {
 
 app.post("/update_cell_delivery", (req,res)=>{
     console.log("UPDATE:", req.body);
-     var updatesql ="UPDATE `alex`.`delivery_apu` SET `date` = {newdateid}, `plant_name` = {plant}, `dpt_name` = {dept}, `customer`={cust}, `havs_part_nb`={part},`quantity`={qty}, `expedite_nb`={expedite},`comments`={reason} WHERE `delivery_apu`.`id` = {id};".formatSQL(req.body);
+     var updatesql ="UPDATE `alex`.`delivery_apu` SET `date` = {newdateid}, `plant_name` = {plant}, `dpt_name` = {dept}, `customer`={cust}, `havs_part_nb`={part},`quantity`={qty}, `expedite_nb`={expedite},`Time` ={timein}, `comments`={reason} WHERE `delivery_apu`.`id` = {id};".formatSQL(req.body);
     db.query(updatesql, function(err){if (err) throw err;});
 })
 
@@ -493,7 +493,7 @@ app.post("/update_cell_delivery", (req,res)=>{
         console.log("INPUT********:" , req.body);
         // res.send((req.body));
        
- var insertsql = "INSERT INTO `alex`.`delivery_apu` ( `date`, `plant_name`, `dpt_name`, `customer`, `havs_part_nb` ,`quantity`,`expedite_nb`,`comments`) VALUES ({date}, {plant}, {department}, {customer}, {partno},{quantity},{expedite},{reason});".formatSQL(req.body);    
+ var insertsql = "INSERT INTO `alex`.`delivery_apu` ( `date`, `plant_name`, `dpt_name`, `customer`, `havs_part_nb` ,`quantity`,`expedite_nb`,`Time`,`comments`) VALUES ({date}, {plant}, {department}, {customer}, {partno},{quantity},{expedite},{time},{reason});".formatSQL(req.body);    
  //var insertsql= "INSERT INTO `alex`.`delivery` ( `date`, `plant_name`, `dpt_name`, `customer`, `havs_part_nb` ,`quantity`,`expedite_nb`, `shuttle_time`,`comments`) VALUES ();"     
          
            db.query(insertsql, function(err){if (err) throw err;});
