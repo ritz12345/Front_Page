@@ -1,5 +1,5 @@
 #front_page_body{
-  background: white;}
+  background: #40795a;}
  
  
 
@@ -48,17 +48,22 @@ section h2{
 }
 
 #gr{
-  background: #232943;
+  background: #8d96c1;
   border: none;
   
 }
 #cad{
-  background: #232943;
+  background: #8d96c1;
   border: none;
 }
 #common{
-  background: #232943;
+  background: #8d96c1;
   border: none;
 }
-
+.image {
+     float:none;
+     margin-top: 0px; 
+     margin-left: 0px; 
+     margin-right: 0px; 
+}
 

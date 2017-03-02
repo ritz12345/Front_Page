@@ -1,15 +1,18 @@
 /* Box colors */
 .bg-1 {
-	background: #ECEFF1;
+	background:#61839a;
 	color: #37474f;
+	border-radius: 1%;
 }
 .bg-2 {
-	background: #7986cb;
+	background:#82bf82;
 	color: #ECEFF1;
+	border-radius: 1%;
 }
 .bg-3 {
 	background: #37474f;
 	color: #fff;
+	border-radius: 1%;
 }
 
 /* Common button styles */
@@ -562,7 +565,7 @@
 .button--isi {
 	padding: 1.2em 2em;
 	color: #fff;
-	background: #7986cb;
+	background: #fff;
 	overflow: hidden;
 }
 .button--isi::before {
