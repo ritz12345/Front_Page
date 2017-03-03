@@ -725,6 +725,70 @@ app.post("/insert_cell_safety", (req,res)=> {
 
 })
 
+app.get('/some_data_qualityplant', (req, res) => {
+    console.log("\n input:", req.query);
+    req.query['start'] = parseInt(req.query['start']);
+    req.query['length'] = parseInt(req.query['length']);
+
+    var sql = 'SELECT COUNT(*) FROM `quality_plant`; SELECT id as ID,  DATE_FORMAT(`date`, "%Y-%m-%d") as Date, qr_nb as QR_number, customer as customer, havs_part_nb as havs_no, qty_reject as rejected, issue_description as issue, date_closed as date_closed FROM `quality_plant` LIMIT {start}, {length}'.formatSQL(req.query);
+
+    
+    console.log( sql )
+    db.query(sql, function(err, data){
+
+        // retruned row 
+        // [
+        //     {
+        //     Item: 'H63733A',
+        //     Warehouse: 'GR',
+        //     PostDate: Sun Nov 20 2016 00:00:00 GMT-0500 (Eastern Standard Time),
+        //     TransCode: 'RC' },
+        //     ...
+        // ]
+
+
+        if(err) throw err;
+        console.log( data );
+
+           var ret = {
+          'draw' : parseInt(req.query['draw']),
+          "recordsTotal": data[0][0]['COUNT(*)'],
+          "recordsFiltered":data[0][0]['COUNT(*)'], //data[1].length,
+
+         };
+        var d = [];
+        for(var i = 0; i < data[1].length; i++){
+            var item = []
+            var keys = Object.keys(data[1][i])
+            for (var j = 0; j < keys.length; j++){
+                item.push(data[1][i][keys[j]])
+            }
+            //console.log("ITEM",item);
+            d.push(item)
+       }
+
+       ret['data']=d;
+       
+        res.send( JSON.stringify(ret));
+    })
+
+    
+});
+
+app.get("/addnewdata_qualityplant",(req,res)=>{
+  var sql = 'SELECT * FROM `customer`;'
+  db.query(sql, function(err,data){if (err) throw err; res.send( JSON.stringify(data));});
+})
+
+app.post("/insert_cell_qualityplant", (req,res)=> {
+        console.log("INPUT********:" , req.body);
+        
+  var insertsql = "INSERT INTO `alex`.`quality_plant` ( `date`, `qr_nb`, `havs_plant`, `customer`, `havs_part_nb` ,`cust_part_nb`,`part_description`,`qty_reject`,`issue_description`,`comments`,`date_closed`) VALUES ({datebox}, {qrnum}, {plant}, {customer}, {havsno},{custno},{partdes},{qtyrej},{issuedes},{comments},{dateclosed});".formatSQL(req.body);    
+  db.query(insertsql, function(err){if (err) throw err;});
+
+})
+
+
 
 
 /*#########################################################################################################*/

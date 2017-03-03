@@ -1,0 +1,87 @@
+<html>
+ <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Quality Plant</title>
+    <script src='js/jquery.min.js'></script>
+    <script src='js/core.js'></script>
+    <meta name="description" content="Bootstrap.">  
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="CSS/style1.css">
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"></style>
+    <script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>       
+ </head>
+ <body id="index_page">
+  <div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <img id="modal-img" src="../images/logo.png">
+        <h4 class="modal-title">Create New Quality Alert</h4>
+      </div>
+      <div class="modal-body">
+         <form action ="" method ="get">
+          <p><label>Date Posted:</label>  <input type="date" class="form-control" id="datebox" name="ID"></p>
+          <p><label>QR Number:</label>  <input type="data" class="form-control" id="qrnum"></p>
+          <p><label>Plant:</label> 
+          <select class="form-control" id="plant">
+            <option>  </option>
+            <option> Grand Rapids</option>
+            <option> Cadillac</option>
+            <option>GR/CD</option>
+            <option>N/A</option>
+          </select></p>
+          <p><label>Customer:</label>  <select class="form-control" id="cust">
+          </select></br></p>
+          <p><label>Location:</label>  <input type="text" class="form-control" id="Location"></br></p>
+          <p><label>HAVS Part No:</label>  <input type="text" class="form-control" id="havsno"></br></p>
+          <p><label>Customer Part No:</label>  <input type="text" class="form-control" id="custno"></br></p>
+          <p><label>Part Description:</label>  <input type="text" class="form-control" id="partdes"></br></p>
+          <p><label>Quantity Rejected:</label>  <input type="text" class="form-control" id="qtyrejected"></br></p>
+          <p><label>Repeat:</label> 
+          <select class="form-control" id="repeate">
+            <option>YES  </option>
+            <option> NO</option>
+          </select></p>
+          <p><label>Issue Description:</label>  <textarea type="text" rows="3" class="form-control" id="issuedes" name="ID"></textarea></p>
+           <p><label>Corrective Actions:</label>  <textarea type="text" rows="3" class="form-control" id="corrac" name="ID"></textarea></p>
+            <p><label>Comments:</label>  <textarea type="text" rows="3" class="form-control" id="comments" name="ID"></textarea></p>
+          <p><label>Date Closed:</label>  <input type="date" class="form-control" id="dateclosed" name="ID"></p></form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" id="submit_qualityplant" onclick="">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>  
+
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+        <img src="../images/logo.png">
+        <p class="navbar-text" id="nav-id"> Quality Alerts</p>
+        </div>
+      </div>
+    </nav>
+    <div class ="table-responsive">
+      <table id="myTable_qualityplant" class= "cell-border"  width="90%">
+        <thead class='thead-inverse'>
+          <tr>
+            <th>ID</th>
+            <th>Date Posted</th>
+            <th>QR Number</th>
+            <th>Customer</th>
+            <th>HAVS Part No</th>
+            <th>Quantity Rejected</th>
+            <th>Issue Description</th>
+            <th>Date Closed</th>
+          </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
+      <div id="addnewshipment"><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" id="addNewData_qualityplant">ADD NEW DATA</button></div>
+    </div>
+  </body>
+</html> 

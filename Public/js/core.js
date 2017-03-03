@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    //$("#video").get(0).play();
+  
  $('#myTable').DataTable({
           rowCallback : function( row, data, index ) {
                         $(row).click(function(row, data, index){
@@ -946,6 +946,65 @@ $("#submit_delivery").click(function(){
         });
       })
    
+$('#myTable_qualityplant').DataTable({
+         processing :   true,
+         ordering   :   false,
+         serverSide :   true,
+         pageLength :   10,
+         paginate   :   true,
+         searching  :   true,
+         ajax       :"/some_data_qualityplant"
+         
+        });
 
+    $("#addNewData_qualityplant").click(function(){
+        $.ajax({
+            url  : "/addnewdata_qualityplant",
+            type : "GET",
+            contentType: "application/json",
+            processData: false,
+            complete : function(data){
+              var customers= JSON.parse(data.responseText);
+              var cust_name=[]
+              for (var i = 1; i < customers.length; i++) {
+                cust_name[i] =customers[i].name 
+              } 
+              var st="";
+              for (var i = 1; i < customers.length; i++) {
+                 st += "<option>" + cust_name[i]+ "</option>";
+                
+              }
+              $("#cust").html( st );  
+            }
+          })
+    })
+    $("#submit_qualityplant").click(function(){
+        var datebox =$("#datebox").val(),
+        qrnum =$("#qrnum").val(),
+        plant =$("#plant").val(),
+        customer=$("#cust").val(),
+        location =$("#Location").val(),
+        havsno =$("#havsno").val(),
+        custno =$("#custno").val(),
+        partdes=$("#partdes").val(),
+        qtyrej =$("#qtyrejected").val(),
+        repeate=$("#repeate").val(),
+        issuedes=$("#issuedes").val(),
+        corrective=$("#corrac").val(),
+        comments=$("#comments").val(),
+        dateclosed=$("#dateclosed").val();
+
+
+        var new_data  = {datebox,qrnum,plant,customer,location,havsno,custno,partdes,qtyrej,repeate,issuedes,corrective,comments, dateclosed};
+        console.log(new_data);
+        $.ajax({
+                url         :"/insert_cell_qualityplant",
+                type        : "POST",
+                contentType : "application/json",
+                data        : JSON.stringify(new_data),
+                processData : false
+        });
+      })
+       
 
 }) //DOC.READY
