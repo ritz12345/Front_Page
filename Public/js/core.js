@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    //$("#video").get(0).play();
  $('#myTable').DataTable({
           rowCallback : function( row, data, index ) {
                         $(row).click(function(row, data, index){

@@ -91,6 +91,7 @@ a:focus {
 	font-size: 4em;
 	line-height: 1;
 	margin-bottom: 0;
+	color:white;
 }
 .codrops-header h1 span {
 	display: block;
