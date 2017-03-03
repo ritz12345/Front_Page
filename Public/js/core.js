@@ -947,6 +947,25 @@ $("#submit_delivery").click(function(){
       })
    
 $('#myTable_qualityplant').DataTable({
+  createdRow  : function(row,data,index){
+             
+             
+            if(data[7] == "0000-00-00"){
+
+              $(row).css('color','red')
+            }
+        },
+         rowCallback : function( row, data, index ) {
+                      $(row).click(function(row, data, index){
+                        var myModalIDs = ["idin","date_postedin","qrnoin","customerin","havsin","qrejectin","issuein","date_closedin"];
+                      for (var i=0; i<data.length; i++)
+                        {
+                            $('#' + myModalIDs[i]).val(data[i])
+                        }
+
+                        $("#myModal2").modal("show");
+                      }.bind(this, row, data, index));
+                      },
          processing :   true,
          ordering   :   false,
          serverSide :   true,
@@ -956,6 +975,27 @@ $('#myTable_qualityplant').DataTable({
          ajax       :"/some_data_qualityplant"
          
         });
+$("#edit_qualityplant").click(function(){
+         var idin=$("#idin").val(), 
+         date_postedin=$("#date_postedin").val(),
+         qrnoin=$("#qrnoin").val(),
+         customerin=$("#custin").val(),
+         havsin=$("#havsin").val(),
+         qrejectin=$("#qrejectin").val(),
+         issuein=$("#issuein").val(),
+         date_closedin=$("#date_closedin").val();
+        
+
+          var update_data = {idin,date_postedin,qrnoin,customerin,havsin,qrejectin,issuein,date_closedin};
+        
+         $.ajax({
+          url         :"/update_cell_qualityplant",
+          type        : "POST",
+          contentType : "application/json",
+          data        : JSON.stringify(update_data),
+          processData : false
+        }); 
+    });
 
     $("#addNewData_qualityplant").click(function(){
         $.ajax({
@@ -1005,6 +1045,8 @@ $('#myTable_qualityplant').DataTable({
                 processData : false
         });
       })
+
+
        
 
 }) //DOC.READY

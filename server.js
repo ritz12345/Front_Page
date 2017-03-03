@@ -788,6 +788,11 @@ app.post("/insert_cell_qualityplant", (req,res)=> {
 
 })
 
+app.post("/update_cell_qualityplant", (req,res)=>{
+    console.log("UPDATE:", req.body);
+     var updatesql ="UPDATE `alex`.`quality_plant` SET `date` = {date_postedin}, `qr_nb` = {qrnoin}, `customer` = {customerin}, `havs_part_nb`={havsin}, `qty_reject`={qrejectin}, `issue_description`={issuein},`date_closed`={date_closedin} WHERE `quality_plant`.`id` = {idin};".formatSQL(req.body);
+     db.query(updatesql, function(err){if (err) throw err;});
+})
 
 
 
